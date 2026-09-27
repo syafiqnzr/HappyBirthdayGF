@@ -5,19 +5,6 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.top = e.clientY + 'px';
 });
 
-// Typing effect for greeting
-const greetingText = "Hey You Know What! You're the most adorable human i ever met! 💖";
-const greetingElement = document.querySelector('.greeting');
-let charIndex = 0;
-
-function typeGreeting() {
-    if (charIndex < greetingText.length) {
-        greetingElement.textContent += greetingText.charAt(charIndex);
-        charIndex++;
-        setTimeout(typeGreeting, 100);
-    }
-}
-
 // Create floating elements
 const floatingElements = ['💖', '✨', '🌸', '💫', '💕'];
 function createFloating() {
@@ -57,9 +44,6 @@ window.addEventListener('load', () => {
         y: -20,
         ease: "back.out"
     });
-
-    // Start typing effect
-    typeGreeting();
 
     // Create floating elements periodically
     setInterval(createFloating, 1000);
