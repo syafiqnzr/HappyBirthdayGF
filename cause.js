@@ -44,13 +44,6 @@ function createReasonCard(reason) {
     
     card.appendChild(text);
     card.appendChild(gifOverlay);
-    
-    gsap.from(card, {
-        opacity: 0,
-        y: 50,
-        duration: 0.5,
-        ease: "back.out"
-    });
 
     return card;
 }
