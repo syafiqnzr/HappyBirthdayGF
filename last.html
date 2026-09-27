@@ -263,7 +263,7 @@
             font-size: 1.2rem;
             background: var(--btn);
             color: white;
-            border: none;
+            border: 2px solid rgba(255, 255, 255, 0.85);
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
@@ -321,8 +321,25 @@
             z-index: 2;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
+        /* Single card + goodbye button, centred on screen */
+        .single {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 2rem 16px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .single .memory-card {
+            width: 100%;
+            max-width: 420px;
+        }
+
+        /* Custom Scrollbar */        ::-webkit-scrollbar {
             width: 12px;
         }
 
@@ -363,40 +380,15 @@
         <div class="heart" style="--float-duration: 5s; --delay: 4s; --translate-x: 30px;">✨</div>
     </div>
 
-    <section class="welcome">
-        <h1>Our Beautiful Moments Together</h1>
-        <p>Every moment spent with you has been magical. Let's cherish these precious memories ...</p>
-    </section>
-
-    <div class="memory-container">
+    <main class="single">
         <div class="memory-card">
             <img src="./d1.jpg" alt="First Date" class="memory-img">
             <div class="memory-date">Her Smile Says It All</div>
             <div class="memory-caption">You’re truly one of the sweetest girls I know, and I feel lucky to have a sis
                 like you.🌅</div>
         </div>
-        <div class="memory-card">
-            <img src="./d2.jpg" alt="Beach Day" class="memory-img">
-            <div class="memory-date">Together Vibes</div>
-            <div class="memory-caption">May your journey ahead be filled with happiness, success, and endless
-                smiles.😊✨</div>
-        </div>
-        <div class="memory-card">
-            <img src="./d3.jpg" alt="Movie Night" class="memory-img">
-            <div class="memory-date">Pretty Soul</div>
-            <div class="memory-caption">Keep being the amazing person you are—you make every moment brighter.🌊✨</div>
-        </div>
-
-    </div>
-
-    <section class="final-message">
-        <h2>Thank You for the Memories</h2>
-        <p>Every laugh, every chat, and every moment we’ve shared has been truly special.💫<br>
-            I’m so grateful for the bond we have, and for the positivity you always bring into my life.<br>
-            On your birthday, I just wish for endless happiness, love, and success to come your way.🌸</p>
-        <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
-        <a href="#" class="goodbye-btn">Until We Meet Again 🌅</a>
-    </section>
+        <a href="#" class="goodbye-btn">byee👋</a>
+    </main>
 </body>
 
 </html>
