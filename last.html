@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Beautiful Memories ✨</title>
+    <link rel="stylesheet" href="sunset.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap');
 
@@ -16,14 +17,6 @@
 
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg,
-                    #ffd1dc 0%,
-                    #e6e6fa 25%,
-                    #ffefd5 50%,
-                    #e6e6fa 75%,
-                    #ffd1dc 100%);
-            background-size: 400% 400%;
-            animation: gradientFlow 15s ease infinite;
             font-family: 'Quicksand', sans-serif;
             overflow-x: hidden;
             color: #4a4a4a;
@@ -118,7 +111,7 @@
         .heart {
             position: absolute;
             font-size: 1.5rem;
-            color: rgba(255, 105, 180, 0.6);
+            color: rgba(255, 140, 58, 0.7);
             animation: floatHeart var(--float-duration, 6s) ease-in-out infinite;
             animation-delay: var(--delay, 0s);
         }
@@ -144,8 +137,8 @@
         .welcome h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 4rem;
-            color: #ff69b4;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: var(--ink);
+            text-shadow: 0 2px 12px rgba(255, 255, 255, 0.7);
             animation: fadeInScale 2s ease;
         }
 
@@ -215,7 +208,7 @@
 
         .memory-date {
             font-family: 'Dancing Script', cursive;
-            color: #ff69b4;
+            color: #c85a14;
             font-size: 1.3rem;
             margin-bottom: 0.5rem;
         }
@@ -230,7 +223,7 @@
         .final-message {
             text-align: center;
             padding: 4rem 2rem;
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(10px);
             margin-top: 3rem;
             position: relative;
@@ -240,7 +233,7 @@
         .final-message h2 {
             font-family: 'Dancing Script', cursive;
             font-size: 3rem;
-            color: #ff69b4;
+            color: var(--ink);
             margin-bottom: 2rem;
             animation: heartbeat 2s infinite;
         }
@@ -268,20 +261,20 @@
             display: inline-block;
             padding: 1rem 2rem;
             font-size: 1.2rem;
-            background: linear-gradient(45deg, #ff69b4, #da70d6);
+            background: var(--btn);
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+            box-shadow: 0 5px 15px rgba(15, 44, 82, 0.35);
             animation: float 3s infinite ease-in-out;
         }
 
         .goodbye-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+            box-shadow: 0 8px 20px rgba(255, 140, 58, 0.7);
         }
 
         @keyframes float {
@@ -338,7 +331,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #ff69b4, #da70d6);
+            background: var(--btn);
             border-radius: 6px;
         }
 
@@ -363,11 +356,11 @@
     <div class="magic-sparkles"></div>
     <div class="floating-hearts">
         <!-- Hearts will be generated via CSS -->
-        <div class="heart" style="--float-duration: 6s; --delay: 0s; --translate-x: 20px;">💝</div>
-        <div class="heart" style="--float-duration: 8s; --delay: 1s; --translate-x: -30px;">💖</div>
-        <div class="heart" style="--float-duration: 7s; --delay: 2s; --translate-x: 40px;">💗</div>
-        <div class="heart" style="--float-duration: 9s; --delay: 3s; --translate-x: -20px;">💓</div>
-        <div class="heart" style="--float-duration: 5s; --delay: 4s; --translate-x: 30px;">💕</div>
+        <div class="heart" style="--float-duration: 6s; --delay: 0s; --translate-x: 20px;">💙</div>
+        <div class="heart" style="--float-duration: 8s; --delay: 1s; --translate-x: -30px;">🧡</div>
+        <div class="heart" style="--float-duration: 7s; --delay: 2s; --translate-x: 40px;">🌊</div>
+        <div class="heart" style="--float-duration: 9s; --delay: 3s; --translate-x: -20px;">🐚</div>
+        <div class="heart" style="--float-duration: 5s; --delay: 4s; --translate-x: 30px;">✨</div>
     </div>
 
     <section class="welcome">
@@ -402,7 +395,7 @@
             I’m so grateful for the bond we have, and for the positivity you always bring into my life.<br>
             On your birthday, I just wish for endless happiness, love, and success to come your way.🌸</p>
         <p>You deserve all the joy in the world—keep shining and spreading your beautiful energy.✨</p>
-        <a href="#" class="goodbye-btn">Until We Meet Again 💝</a>
+        <a href="#" class="goodbye-btn">Until We Meet Again 💙</a>
     </section>
 </body>
 

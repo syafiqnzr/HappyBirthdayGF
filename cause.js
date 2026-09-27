@@ -7,12 +7,12 @@
     },
     { 
         text: "May your day be filled with love, laughter, and endless joy. 🌸 ", 
-        emoji: "💗",
+        emoji: "💙",
         gif: "gif2.gif"
     },
     { 
         text: "Wishing you success, happiness, and everything your heart desires. ✨ ", 
-        emoji: "💕",
+        emoji: "🧡",
         gif: "gif1.gif"
     },
     { 
@@ -76,7 +76,7 @@ function displayNewReason() {
                 duration: 0.5,
                 ease: "elastic.out",
                 onComplete: () => {
-                    shuffleButton.textContent = "Enter Our Storylane 💫";
+                    shuffleButton.textContent = "Enter Our Storylane 🌅";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {
@@ -117,7 +117,7 @@ shuffleButton.addEventListener('click', () => {
 
 // Floating elements function (same as before)
 function createFloatingElement() {
-    const elements = ['🌸', '✨', '💖', '🦋', '⭐'];
+    const elements = ['🌊', '✨', '💙', '🐚', '🧡'];
     const element = document.createElement('div');
     element.className = 'floating';
     element.textContent = elements[Math.floor(Math.random() * elements.length)];

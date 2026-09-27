@@ -6,7 +6,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Create floating elements
-const floatingElements = ['💖', '✨', '🌸', '💫', '💕'];
+const floatingElements = ['💙', '🧡', '✨', '🌊', '🐚'];
 function createFloating() {
     const element = document.createElement('div');
     element.className = 'floating';
@@ -30,18 +30,18 @@ function createFloating() {
 // Initialize animations
 window.addEventListener('load', () => {
     // Title animation
-    gsap.to('h1', {
+    gsap.fromTo('h1', { y: -20 }, {
         opacity: 1,
         duration: 1,
-        y: 20,
+        y: 0,
         ease: "bounce.out"
     });
 
     // Button animation
-    gsap.to('.cta-button', {
+    gsap.fromTo('.cta-button', { y: 20 }, {
         opacity: 1,
         duration: 1,
-        y: -20,
+        y: 0,
         ease: "back.out"
     });
 

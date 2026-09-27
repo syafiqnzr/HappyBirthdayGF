@@ -1,0 +1,70 @@
+/* Shared "sunset over the sea" theme for all pages */
+:root {
+    --ink: #17427a;          /* deep sea blue for headings */
+    --ink-soft: #2f5f93;
+    --ocean: #1f5f99;
+    --ocean-deep: #0f2c52;
+    --sea: #3f86c4;
+    --orange: #ff8c3a;
+    --amber: #ffb35c;
+    --sun: #ffd98a;
+    --btn: linear-gradient(45deg, #1f5f99, #3f86c4);
+    --btn-glow: rgba(255, 140, 58, 0.55);
+}
+
+body {
+    /* sky (blue → peach → orange) with the horizon at 70%, sea below */
+    background: linear-gradient(180deg,
+            #b9d4ec 0%,
+            #f3dcc6 36%,
+            #ffc18c 56%,
+            #ff9a4d 70%,
+            #3f86c4 70%,
+            #1f5f99 84%,
+            #0f2c52 100%) fixed;
+}
+
+/* setting sun sitting on the horizon */
+body::before {
+    content: '';
+    position: fixed;
+    left: 50%;
+    bottom: 30vh;
+    width: 200px;
+    height: 100px;
+    transform: translateX(-50%);
+    border-radius: 100px 100px 0 0;
+    background: radial-gradient(circle at 50% 100%, #fff3c9 0%, var(--sun) 40%, var(--orange) 100%);
+    box-shadow: 0 0 90px 40px rgba(255, 150, 70, 0.5);
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* shimmering reflection of the sun on the water */
+body::after {
+    content: '';
+    position: fixed;
+    left: 50%;
+    top: 70vh;
+    width: 220px;
+    height: 30vh;
+    transform: translateX(-50%);
+    background: repeating-linear-gradient(180deg,
+            rgba(255, 200, 130, 0.55) 0 3px,
+            transparent 3px 14px);
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+    mask-image: linear-gradient(180deg, #000, transparent);
+    animation: shimmer 4s ease-in-out infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes shimmer {
+    0%, 100% { opacity: 0.9; transform: translateX(-50%) scaleX(1); }
+    50% { opacity: 0.5; transform: translateX(-50%) scaleX(1.25); }
+}
+
+@media (max-width: 768px) {
+    body::before { width: 140px; height: 70px; }
+    body::after { width: 160px; }
+}

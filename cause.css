@@ -9,9 +9,6 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(-45deg, #ffe6e6, #e6e6ff, #ffebf5);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
     font-family: 'Quicksand', sans-serif;
     overflow-x: hidden;
     padding: 2rem;
@@ -23,14 +20,13 @@ body {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    mix-blend-mode: difference;
     transition: transform 0.1s;
 }
 
 .custom-cursor svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 5px rgba(255, 182, 193, 0.5));
+    filter: drop-shadow(0 0 5px rgba(255, 140, 58, 0.6));
 }
 
 .container {
@@ -44,8 +40,8 @@ body {
 h1 {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 3rem;
-    color: #ff69b4;
-    text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+    color: var(--ink);
+    text-shadow: 0 2px 12px rgba(255, 255, 255, 0.7);
     margin-bottom: 2rem;
     animation: bounce 1s ease infinite;
 }
@@ -64,7 +60,7 @@ h1 {
 
 .reason-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 140, 58, 0.35);
 }
 
 .reason-text {
@@ -94,7 +90,7 @@ h1 {
 }
 
 .shuffle-button {
-    background: linear-gradient(45deg, #ff69b4, #ff99cc);
+    background: var(--btn);
     border: none;
     border-radius: 50px;
     padding: 1rem 2rem;
@@ -104,7 +100,7 @@ h1 {
     cursor: pointer;
     transition: transform 0.3s;
     font-family: 'Comic Neue', cursive;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 6px 20px rgba(15, 44, 82, 0.35);
 }
 
 .shuffle-button:hover {
@@ -126,7 +122,7 @@ h1 {
 .ending-text {
     font-family: 'Bubblegum Sans', cursive;
     font-size: 2rem;
-    color: #ff69b4;
+    color: var(--ink);
     margin-bottom: 2rem;
     opacity: 0;
     transform: translateY(20px);
@@ -160,7 +156,7 @@ h1 {
     .reason-text { font-size: 1rem; }
 }
 .shuffle-button {
-    background: linear-gradient(45deg, #ff69b4, #ff99cc);
+    background: var(--btn);
     border: none;
     border-radius: 50px;
     padding: 1rem 2rem;
@@ -170,11 +166,11 @@ h1 {
     cursor: pointer;
     transition: all 0.3s;
     font-family: 'Comic Neue', cursive;
-    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    box-shadow: 0 6px 20px rgba(15, 44, 82, 0.35);
 }
 
 .shuffle-button.story-mode {
-    background: linear-gradient(45deg, #9b6dff, #ff6dc7);
+    background: linear-gradient(45deg, #ff8c3a, #1f5f99);
     transform: scale(1.1);
 }
 
@@ -188,7 +184,7 @@ h1 {
 
 .reason-counter {
     font-size: 0.9rem;
-    color: #ff69b4;
+    color: var(--ink);
     margin-top: 1rem;
-    opacity: 0.7;
+    font-weight: 600;
 }

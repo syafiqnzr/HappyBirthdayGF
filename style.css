@@ -11,61 +11,56 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(-45deg, #fee9f7, #e8f5fe, #fef2e8, #f0ffe8);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
     font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
     overflow: hidden;
     position: relative;
 }
 
 .cursor {
-    width: 20px;
-    height: 20px;
-    background: pink;
+    width: 18px;
+    height: 18px;
+    background: var(--orange);
+    border: 2px solid #fff;
     border-radius: 50%;
     position: fixed;
     pointer-events: none;
-    mix-blend-mode: difference;
-    transition: transform 0.2s;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 12px var(--btn-glow);
+    z-index: 10;
 }
 
 .container {
     text-align: center;
+    position: relative;
     z-index: 1;
+    padding: 0 16px;
+    /* sit a little above centre so the sun stays visible below */
+    margin-bottom: 12vh;
 }
 
 h1 {
     font-size: 3.5rem;
-    color: #ff69b4;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-    margin-bottom: 2rem;
+    color: var(--ink);
+    text-shadow: 0 2px 14px rgba(255, 255, 255, 0.7);
+    margin-bottom: 3rem;
     opacity: 0;
 }
 
-.greeting {
-    font-size: 1.5rem;
-    color: #8a2be2;
-    margin-bottom: 3rem;
-    min-height: 2em;
-}
-
 .cta-button {
-    padding: 1rem 2rem;
+    padding: 1rem 2.5rem;
     font-size: 1.2rem;
-    background: linear-gradient(45deg, #ff69b4, #ff99cc);
+    background: var(--btn);
     border: none;
     border-radius: 50px;
     color: white;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
-    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 20px rgba(15, 44, 82, 0.35);
+    transition: box-shadow 0.3s;
     opacity: 0;
 }
 
 .cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px rgba(255, 105, 180, 0.7);
+    box-shadow: 0 0 28px var(--btn-glow);
 }
 
 .floating {
@@ -74,14 +69,7 @@ h1 {
     opacity: 0;
 }
 
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 @media (max-width: 768px) {
-    h1 { font-size: 2rem; }
-    .greeting { font-size: 1.2rem; }
+    h1 { font-size: 2.2rem; margin-bottom: 2.5rem; }
     .cta-button { font-size: 1rem; }
 }
