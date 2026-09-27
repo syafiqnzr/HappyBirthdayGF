@@ -339,6 +339,12 @@
             max-width: 420px;
         }
 
+        /* show the whole square illustration instead of a 250px crop */
+        .single .memory-img {
+            height: auto;
+            aspect-ratio: 1 / 1;
+        }
+
         .single .memory-date {
             text-align: center;
             font-size: 1.8rem;
@@ -388,7 +394,7 @@
 
     <main class="single">
         <div class="memory-card">
-            <img src="./d1.jpg" alt="First Date" class="memory-img">
+            <img src="./d1.jpg?v=2" alt="First Date" class="memory-img">
             <div class="memory-date">Selamat Hari Tua🐱</div>
         </div>
         <a href="index.html" class="goodbye-btn">byee👋</a>
