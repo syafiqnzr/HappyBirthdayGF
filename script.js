@@ -29,14 +29,6 @@ function createFloating() {
 
 // Initialize animations
 window.addEventListener('load', () => {
-    // Title animation
-    gsap.fromTo('h1', { y: -20 }, {
-        opacity: 1,
-        duration: 1,
-        y: 0,
-        ease: "bounce.out"
-    });
-
     // Button animation
     gsap.fromTo('.cta-button', { y: 20 }, {
         opacity: 1,
