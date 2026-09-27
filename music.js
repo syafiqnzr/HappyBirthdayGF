@@ -35,8 +35,36 @@
             box-shadow: 0 6px 20px rgba(15,44,82,.35);
         }
         #yt-music { position: fixed; left: -9999px; top: 0; width: 200px; height: 200px; }
+        .music-intro {
+            position: fixed; inset: 0; z-index: 100;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 14px; padding: 16px; text-align: center;
+            background: rgba(15, 44, 82, 0.75);
+            -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+            color: #fff; font-family: 'Arial Rounded MT Bold', Arial, sans-serif;
+            transition: opacity .6s ease;
+        }
+        .music-intro .icon { font-size: 56px; animation: introPulse 1.6s ease-in-out infinite; }
+        .music-intro .text { font-size: 1.3rem; text-shadow: 0 2px 10px rgba(0,0,0,.3); }
+        .music-intro, .music-intro * { cursor: pointer; }
+        .music-intro.gone { opacity: 0; pointer-events: none; }
+        @keyframes introPulse { 50% { transform: scale(1.15); } }
     `;
     document.head.appendChild(style);
+
+    // Browsers only allow sound after a tap, so on a fresh visit
+    // (music never started or muted) ask for one tap first.
+    if (store.get('musicOn') === null) {
+        const intro = document.createElement('div');
+        intro.className = 'music-intro';
+        intro.innerHTML = '<div class="icon">🎧</div><div class="text">Tekan skrin untuk mula</div>';
+        document.body.appendChild(intro);
+        intro.addEventListener('click', (e) => {
+            e.stopPropagation();
+            intro.classList.add('gone');
+            setTimeout(() => intro.remove(), 700);
+        });
+    }
 
     const holder = document.createElement('div');
     holder.id = 'yt-music';
