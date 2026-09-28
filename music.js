@@ -2,6 +2,10 @@
 // Plays 0:25 → 5:50 on loop, carries its position across pages,
 // and starts on the first click/tap (browsers block sound before that).
 (function () {
+    // Pages shown inside the index.html shell leave the music to the shell,
+    // so it keeps playing without a gap when the page changes.
+    if (window.self !== window.top) return;
+
     const VIDEO_ID = 'ACEEIS_gCDc';
     const START = 25;   // 0:25
     const END = 350;    // 5:50
@@ -50,9 +54,9 @@
     `;
     document.head.appendChild(style);
 
-    // Browsers only allow sound after a tap, so on a fresh visit
-    // (music never started or muted) ask for one tap first.
-    if (store.get('musicOn') === null) {
+    // Browsers only allow sound after a tap, so on every fresh load
+    // (unless the visitor muted it) ask for one tap first.
+    if (store.get('musicOn') !== '0') {
         const intro = document.createElement('div');
         intro.className = 'music-intro';
         intro.innerHTML = '<div class="text">Tekan skrin untuk mula</div>';
@@ -97,14 +101,23 @@
         wantOn ? stop() : play();
     });
 
-    // First interaction on any page starts (or resumes) the music,
+    // Any tap starts (or resumes, if the browser paused it) the music,
     // unless the visitor muted it.
-    const onFirstTouch = (e) => {
+    const onTouch = (e) => {
         if (btn.contains(e.target)) return; // the toggle handles itself
         if (store.get('musicOn') !== '0') play();
     };
-    ['pointerdown', 'keydown', 'touchstart'].forEach(ev =>
-        document.addEventListener(ev, onFirstTouch, { once: true, capture: true }));
+    const listen = (doc) => ['pointerdown', 'keydown', 'touchstart'].forEach(ev =>
+        doc.addEventListener(ev, onTouch, { capture: true }));
+    listen(document);
+
+    // taps inside the page frame don't bubble up here, so listen in each loaded page too
+    const frame = document.getElementById('site');
+    if (frame) {
+        frame.addEventListener('load', () => {
+            try { listen(frame.contentDocument); } catch (e) { }
+        });
+    }
 
     // remember position so the next page continues from here
     setInterval(() => {
