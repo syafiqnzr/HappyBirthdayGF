@@ -92,8 +92,11 @@ h1 {
     z-index: 1;
 }
 
-.reason-card:hover .gif-overlay {
-    opacity: 1;
+/* only with a mouse — on phones the "hover" sticks after a tap and the gif covers the text */
+@media (hover: hover) {
+    .reason-card:hover .gif-overlay {
+        opacity: 1;
+    }
 }
 
 .shuffle-button {
@@ -194,4 +197,13 @@ h1 {
     color: var(--ink);
     margin-top: 1rem;
     font-weight: 600;
+}
+
+/* pill background so it stays readable when it scrolls over the sea */
+.reason-counter:not(:empty) {
+    display: table; /* own line, shrink-wrapped, centred */
+    margin: 1rem auto 0;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.85);
 }

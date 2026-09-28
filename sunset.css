@@ -10,34 +10,26 @@
     --sun: #ffd98a;
     --btn: linear-gradient(45deg, #1f5f99, #3f86c4);
     --btn-glow: rgba(255, 140, 58, 0.55);
+    --sun-r: 100px;          /* sun radius */
 }
 
-body {
-    /* sky (blue → peach → orange) with the horizon at 70%, sea below */
-    background: linear-gradient(180deg,
-            #b9d4ec 0%,
-            #f3dcc6 36%,
-            #ffc18c 56%,
-            #ff9a4d 70%,
-            #3f86c4 70%,
-            #1f5f99 84%,
-            #0f2c52 100%) fixed;
-}
-
-/* setting sun sitting on the horizon */
+/*
+ * The whole scene is one fixed layer pinned to the screen, instead of a
+ * `background-attachment: fixed` body background — iOS Safari ignores that
+ * (the page went dark blue on iPhone). Layers, top to bottom:
+ * sea, sun disc, sun glow, sky. The horizon sits at 70% of the screen.
+ */
 body::before {
     content: '';
     position: fixed;
-    left: 50%;
-    bottom: 30vh;
-    width: 200px;
-    height: 100px;
-    transform: translateX(-50%);
-    border-radius: 100px 100px 0 0;
-    background: radial-gradient(circle at 50% 100%, #fff3c9 0%, var(--sun) 40%, var(--orange) 100%);
-    box-shadow: 0 0 90px 40px rgba(255, 150, 70, 0.5);
-    pointer-events: none;
+    inset: 0;
     z-index: -1;
+    pointer-events: none;
+    background:
+        linear-gradient(180deg, transparent 70%, #3f86c4 70%, #1f5f99 84%, #0f2c52 100%),
+        radial-gradient(circle at 50% 70%, #fff3c9 0, var(--sun) calc(var(--sun-r) * 0.4), var(--orange) calc(var(--sun-r) - 1px), rgba(255, 140, 58, 0) var(--sun-r)),
+        radial-gradient(circle at 50% 70%, rgba(255, 150, 70, 0.5) 0, rgba(255, 150, 70, 0) calc(var(--sun-r) * 2.3)),
+        linear-gradient(180deg, #b9d4ec 0%, #f3dcc6 36%, #ffc18c 56%, #ff9a4d 70%);
 }
 
 /* shimmering reflection of the sun on the water */
@@ -45,9 +37,9 @@ body::after {
     content: '';
     position: fixed;
     left: 50%;
-    top: 70vh;
+    top: 70%;
     width: 220px;
-    height: 30vh;
+    height: 30%;
     transform: translateX(-50%);
     background: repeating-linear-gradient(180deg,
             rgba(255, 200, 130, 0.55) 0 3px,
@@ -65,6 +57,12 @@ body::after {
 }
 
 @media (max-width: 768px) {
-    body::before { width: 140px; height: 70px; }
+    :root { --sun-r: 70px; }
     body::after { width: 160px; }
+}
+
+/* Touch screens: no mouse, so hide the custom cursors (they got stuck where
+   the finger last tapped). */
+@media (hover: none) {
+    .cursor, .custom-cursor { display: none !important; }
 }
